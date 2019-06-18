@@ -19,8 +19,6 @@ class ToDoList extends React.Component {
     });
   };
 
-  
-
   render() {
     console.log(this.props);
     console.log(this.props.addTask);
@@ -31,7 +29,10 @@ class ToDoList extends React.Component {
           // List existing todo list
           <>
             <h4>{task.value}</h4>
-            <button onClick={() => {this.props.markCompleted(task.id)}}>
+            {/* How to differentiate between items?  Use the click to ID which item you want.
+            in the mapping, onClick, take note of which ID is clicked, pass it to action.
+            Such a simple concept, difficult to actually code */}
+            <button onClick={() => {this.props.markCompleted(task.id);}}>
               Mark Completed
             </button>
           </>
