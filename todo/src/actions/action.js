@@ -1,9 +1,10 @@
 
+//type
+export const addNewTask = "ADD_NEW_TASK"
 
-
-// export function test (gabba) {
-//     return {
-//         type: ASTSDFSDAF
-//         payload: ....
-//     }
-// }
+export function addTask (newTask) {
+    return {
+        type: addNewTask,
+        payload: newTask
+    }
+}

@@ -1,3 +1,4 @@
+import { addTask } from "../actions/action";
 
 
 const initialState = {
@@ -10,7 +11,14 @@ const initialState = {
 
 export const reducer = (state=initialState, action) => {
     switch(action.type) {
-    //case: 
+    case addTask:
+        return {
+            ...state,
+            todos: [
+                ...state.todos, 
+                action.payload
+            ]
+        }
 
         default: return state
     }
