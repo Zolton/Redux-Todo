@@ -4,10 +4,14 @@ import {addTask} from "../actions/action"
 
 
 class ToDoList extends React.Component {
+    // State's only purpose is to hold the input form value temporarily
+    // until it can be handed off to the addTask function
     state={
         task:""
     }
 
+    // Sets the input value equal to the name, 
+    // which since it's the same as state, stores it temporarily
     changeHandler = event => {
         event.preventDefault();
         this.setState({
@@ -23,6 +27,7 @@ class ToDoList extends React.Component {
             <>
             Hello from todoList!
            {this.props.todos.map(task => 
+           // List existing todo list
                 <h4>{task.value}</h4>
                 )}
                 <input 
@@ -32,7 +37,7 @@ class ToDoList extends React.Component {
                 name="task"
                 onChange={this.changeHandler}
                 />
-                {/* <button> */}
+                {/* onClick, call addTask from action creator, feed it this.state.task */}
             <button onClick = {()=>{this.props.addTask(this.state.task)}}>
                 Submit
             </button>
