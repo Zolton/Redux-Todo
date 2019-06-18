@@ -3,25 +3,19 @@ import ReactDOM from "react-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import "./index.css";
-import App from "./App";
+import {reducer} from "./reducers/reducer"
+import ToDoList from "./components/ToDoList"
+//import App from "./App";
 
 const store = createStore(reducer);
 
-const initialState = {
-    todos: [
-        {value: "take out garbage",
-        completed: false},
-        {value: "water plants",
-        completed: false},
-        {value: "shop for food",
-        completed: false},
-    ]
-}
-
-const reducer = (state=initialState, action) => {
-    switch(action.type) {
-        default: return state
-    }
+function App() {
+  return (
+    <div className="App">
+      <ToDoList />
+   
+    </div>
+  );
 }
 
 ReactDOM.render(
