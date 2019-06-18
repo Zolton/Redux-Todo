@@ -8,3 +8,13 @@ export function addTask (newTask) {
         payload: newTask
     }
 }
+
+export const markComplete = "TASK_COMPLETED"
+
+export function markCompleted (mark) {
+    return {
+        type: markComplete,
+        payload: mark
+    }
+    
+}
