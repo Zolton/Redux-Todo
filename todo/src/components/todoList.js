@@ -2,15 +2,18 @@ import React from "react"
 import {connect} from "react-redux"
 
 
-export default class ToDoList extends React.Component {
+class ToDoList extends React.Component {
     
     render(){
+        console.log(this.props)
         return(
+            
             <>
-            {/* props.map(task => {
-                <h3>{task.value}</h3>
-            }) */}
+            
             Hello from todoList!
+           {this.props.todos.map(task => 
+                <h4>{task.value}</h4>
+                )}
             <button>
                 Submit
             </button>
@@ -19,10 +22,10 @@ export default class ToDoList extends React.Component {
     }
 }
 
-// mapStateToProps = state => {
-//     return {
-//         todos: state.todos
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        todos: state.todos
+    }
+}
 
-// export default connect(mapStateToProps, {})(ToDoList)
+export default connect(mapStateToProps, {})(ToDoList)
