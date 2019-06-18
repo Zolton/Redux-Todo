@@ -11,7 +11,7 @@ const initialState = {
 
 export const reducer = (state=initialState, action) => {
     switch(action.type) {
-    case addTask:
+    case "ADD_NEW_TASK":
         return {
             ...state,
             todos: [
