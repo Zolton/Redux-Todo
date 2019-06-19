@@ -38,6 +38,7 @@ export const reducer = (state = initialState, action) => {
         // Again - such a simple concept, but difficult to code
         if (target.id === action.payload) {
           target.completed = true;
+          target.color = "black"
         }
       });
       return {

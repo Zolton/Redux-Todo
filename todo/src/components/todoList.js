@@ -7,7 +7,8 @@ class ToDoList extends React.Component {
   // State's only purpose is to hold the input form value temporarily
   // until it can be handed off to the addTask function
   state = {
-    task: ""
+    task: "",
+    color:""
   };
 
   // Sets the input value equal to the name,
@@ -16,6 +17,12 @@ class ToDoList extends React.Component {
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value
+    });
+  };
+
+  changeColor = event => {
+    this.setState({
+      color: "black"
     });
   };
 
@@ -28,12 +35,12 @@ class ToDoList extends React.Component {
         {this.props.todos.map(task => (
           // List existing todo list
           <>
-            <h4>{task.value}</h4>
+            <h4 style={{backgroundColor: task.color}}>{task.value}</h4>
             {/* How to differentiate between items?  Use the click to ID which item you want.
             in the mapping, onClick, take note of which ID is clicked, pass it to action.
             Such a simple concept, difficult to actually code */}
-            <button onClick={() => {this.props.markCompleted(task.id);}}>
-              Mark Completed
+            <button onClick={() => {this.props.markCompleted(task.id)}}>
+              Task Done
             </button>
           </>
         ))}
